@@ -174,10 +174,66 @@
                     </li>
                 </ul>
             </li>
-            <li>Model Building
+                       <li class="workflow-step">
+                <strong>Model Building</strong>
                 <ul>
                     <li>CNN architecture setup: Construct a VGG-16 inspired model with multiple convolutional layers, max pooling layers, and dense layers to learn hierarchical features from the traffic sign images.</li>
-                    <div class="image-container">
+                    <h3>Model Architecture:</h3>
+                    <p>
+                        The model architecture is inspired by VGG-16, renowned for its simplicity and effectiveness in image recognition tasks. It consists of several convolutional layers designed to extract increasingly complex features from input images, followed by pooling layers to reduce feature map dimensionality.
+                        <ul>
+                            <li>First Convolutional Block:
+                                <ul>
+                                    <li>Conv2D Layer: 64 filters, 3x3 kernel size, activation='relu', input shape=(100,100,3)</li>
+                                    <li>Conv2D Layer: 64 filters, 3x3 kernel size, activation='relu'</li>
+                                    <li>MaxPooling2D: Pool size of (2,2) and stride of 2</li>
+                                </ul>
+                            </li>
+                            <li>Second Convolutional Block:
+                                <ul>
+                                    <li>Conv2D Layer: 128 filters, 3x3 kernel size, activation='relu'</li>
+                                    <li>Conv2D Layer: 128 filters, 3x3 kernel size, activation='relu'</li>
+                                    <li>MaxPooling2D: Pool size of (2,2) and stride of 2</li>
+                                </ul>
+                            </li>
+                            <!-- Similarly, include details for the remaining convolutional blocks -->
+                            <li>Fourth Convolutional Block:
+                                <ul>
+                                    <li>Conv2D Layer: 512 filters, 3x3 kernel size, activation='relu'</li>
+                                    <li>Conv2D Layer: 512 filters, 3x3 kernel size, activation='relu'</li>
+                                    <li>Conv2D Layer: 512 filters, 3x3 kernel size, activation='relu'</li>
+                                    <li>MaxPooling2D: Pool size of (2,2) and stride of 2</li>
+                                </ul>
+                            </li>
+                            <li>Fifth Convolutional Block:
+                                <ul>
+                                    <li>Conv2D Layer: 512 filters, 3x3 kernel size, activation='relu'</li>
+                                    <li>Conv2D Layer: 512 filters, 3x3 kernel size, activation='relu'</li>
+                                </ul>
+                            </li>
+                            <!-- Fully Connected Layers -->
+                            <li>Fully Connected Layers:
+                                <ul>
+                                    <li>Dense Layer: 4096 units, activation='relu'</li>
+                                    <li>Dense Layer: 4096 units, activation='relu'</li>
+                                    <li>Dense Layer: 47 units (number of traffic sign classes), activation='softmax'</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </p>
+                    <h3>Training Specifications:</h3>
+                    <p>
+                        <ul>
+                            <li>Optimizer: Adam optimizer with a learning rate of 0.001.</li>
+                            <li>Loss Function: Categorical crossentropy.</li>
+                            <li>Metrics: Accuracy.</li>
+                        </ul>
+                    </p>
+                    <p>
+                        This architecture effectively captures the hierarchical pattern in the data, crucial for accurate classification of traffic signs.
+                    </p>
+              
+            <div class="image-container">
                         <img src="Convo.jpg" alt="VGG-16 Architecture" class="image">
                         <div class="image-label">VGG-16 Architecture</div>
                     </div>
@@ -218,8 +274,8 @@
         </ul>
         <p>These results validate the effectiveness of the machine learning model in accurately identifying and classifying traffic signs in real-time, contributing to enhanced road safety and navigation.</p>
         <div class="image-container">
-            <img src="Convo.jpg" alt="Confusion Matrix" class="image">
-            <div class="image-label">Confusion Matrix</div>
+            <img src="VGG_results.jpg" alt="VGG results" class="image">
+            <div class="image-label">VGG Results</div>
         </div>
     </section>
 
