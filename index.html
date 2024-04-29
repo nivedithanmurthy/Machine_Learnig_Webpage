@@ -3,47 +3,277 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore real-time traffic sign classification using state-of-the-art machine learning techniques.">
     <title>Real-Time Traffic Sign Classification</title>
+    <link rel="stylesheet" type="text/css" href="Project.css">
     <style>
-        body { font-family: 'Arial', sans-serif; margin: 0; padding: 0; box-sizing: border-box; color: #333; }
-        .navbar { background-color: #333366; color: #fff; padding: 10px 20px; text-align: center; }
-        .navbar a { color: white; margin: 0 10px; text-decoration: none; font-size: 18px; }
-        section { padding: 20px; margin: 10px; border-radius: 8px; background-color: #f4f4f4; }
-        h1, h2 { color: #333366; }
-        #demo { background-color: #ddd; padding: 20px; margin-top: 20px; }
-        button { padding: 10px 20px; margin-top: 10px; }
-        .highlight { color: #d35400; font-weight: bold; }
-        .live-demo { text-align: center; margin-top: 20px; }
-        .live-demo a { color: #d35400; font-size: 20px; text-decoration: none; font-weight: bold; background-color: #f4f4f4; padding: 10px 20px; border-radius: 8px; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            color: #4A4A4A;
+            background-color: #FFFFFF;
+        }
+        header, section, footer, .live-demo {
+            padding: 40px;
+            margin: 20px auto;
+            border-radius: 8px;
+            max-width: 1200px;
+            background: #FAFAFA;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .navbar {
+            background-color: #2C3E50;
+            color: #fff;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .navbar a {
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 18px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .navbar a:hover, .live-demo a:hover {
+            background-color: #34495E;
+        }
+        h1, h2, h3 {
+            color: #34495E;
+        }
+        .highlight {
+            color: #E67E22;
+            font-weight: bold;
+        }
+        .live-demo {
+            text-align: center;
+            background: none;
+            box-shadow: none;
+        }
+        .live-demo a {
+            color: white;
+            background-color: #E67E22;
+            padding: 12px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+        }
+        .image-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .image-label {
+            color: #34495E;
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+        .image {
+            width: 100%;
+            max-width: 700px;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        footer {
+            background: #2C3E50;
+            color: white;
+            text-align: center;
+            padding: 20px 10px;
+        }
+        .workflow-step {
+            margin-bottom: 30px; /* Increased spacing */
+        }
     </style>
 </head>
 <body>
-    <div class="navbar">
+    <nav class="navbar">
         <a href="#problem">Problem Statement</a>
         <a href="#dataset">Dataset</a>
         <a href="#workflow">Workflow</a>
         <a href="#results">Results</a>
         <a href="#live-demo">Live Demo</a>
-    </div>
+    </nav>
 
-    <header style="padding: 40px; text-align: center;">
+    <header>
         <h1>Real-Time Traffic Sign Classification</h1>
         <p>Demonstrating the capabilities of <span class="highlight">Machine Learning</span> and <span class="highlight">Deep Learning</span> in identifying traffic signs from live input.</p>
     </header>
 
-    <section id="problem">
-        <h2>Problem Statement</h2>
-        <p>This project is all about making real-time traffic sign classification a thing. We're using some pretty advanced <span class="highlight">Machine Learning</span> to help autonomous driving systems get better at recognizing traffic signs as they zip along. This is crucial because, you know, it makes driving a lot safer and more efficient. By getting these systems to quickly and accurately pick up on what the signs are saying, we can avoid mishaps and keep things smooth on the roads. Plus, it’s about pushing the envelope on how smart cars can really get when it comes to reading the road.</p>
+    <section id="Introduction">
+        <h2>Introduction</h2>
+        <p>In modern transportation systems, the ability to quickly and accurately recognize traffic signs is crucial for ensuring road safety and facilitating efficient navigation. Traditional methods of traffic sign classification often rely on manual interpretation or simple rule-based systems, which may be prone to errors or limited in scalability. To address these challenges, there is a growing need for automated systems capable of real-time traffic sign classification using advanced machine learning techniques.</p>
+        <p>The proposed project aims to develop such a system, leveraging state-of-the-art machine learning algorithms to analyze traffic sign images captured in real-time by onboard cameras or sensors. By harnessing the power of deep learning, convolutional neural networks (CNNs), and other advanced techniques, the system will be able to accurately identify and classify various types of traffic signs, including regulatory signs, warning signs, and informational signs.</p>
+        <h3>Key Objectives</h3>
+        <ul>
+            <li>Real-Time Classification: The system will process traffic sign images in real-time, providing instantaneous classification results to drivers or autonomous vehicles. This capability is essential for timely decision-making and ensuring safe navigation on the road.</li>
+            <li>Accuracy and Robustness: The system will be trained on a diverse dataset of traffic sign images, encompassing various lighting conditions, weather conditions, and environmental contexts. By incorporating a robust training regime and advanced optimization techniques, the system will aim to achieve high accuracy and reliability in classification, even in challenging scenarios.</li>
+            <li>Integration with Navigation Systems: The classified traffic sign information will be seamlessly integrated with existing navigation systems, providing drivers with relevant guidance and alerts based on the detected signs. This integration will enhance the overall user experience and contribute to improved road safety.</li>
+            <li>Scalability and Adaptability: The system will be designed to be scalable and adaptable, capable of accommodating new types of traffic signs and evolving road environments. This flexibility is essential for ensuring the long-term viability and relevance of the system in dynamic transportation ecosystems.</li>
+        </ul>
     </section>
 
     <section id="dataset">
         <h2>Dataset</h2>
-        <p>Information about the datasets used, including statistics or sources.</p>
+        <p>The dataset used in this project consists of thousands of images of traffic signs collected from diverse driving environments. Each image in the dataset represents a specific category of traffic signs, such as speed limits, prohibitory signs, warning signs, and more. The images vary in terms of background, lighting conditions, and angles to simulate real-world scenarios as closely as possible.</p>
+        <h3>Key Features of the Dataset:</h3>
+        <ul>
+            <li>Size and Scope: The dataset includes a large number of images to ensure that the model can learn a wide range of traffic sign representations.</li>
+            <li>Preprocessing: Images are resized to 100x100 pixels, ensuring uniformity across all inputs. This standardization is crucial for the consistency of feature extraction during model training.</li>
+            <li>Normalization: Pixel values in each image are normalized to fall within the 0-1 range, facilitating faster and more stable training.</li>
+            <li>Augmentation: To enhance model robustness, image augmentation techniques such as rotation, scaling, and translation are applied. This helps the model generalize better to new, unseen images, mimicking variations that occur in real-world driving conditions.</li>
+            <li>Labeling: Each image is meticulously labeled with its corresponding traffic sign class, which is critical for supervised learning.</li>
+        </ul>
     </section>
 
     <section id="workflow">
         <h2>Workflow</h2>
-        <p>Detailed description of the processes for data handling, model training, and real-time analysis.</p>
+        <ol>
+            <li class="workflow-step">
+                <strong>Data Preparation</strong>
+                <ul>
+                    <li>Load and preprocess data: Load images from directories corresponding to traffic signs. Images are resized to a consistent format (100x100 pixels) and labeled according to their directories.</li>
+                    <div class="image-container">
+                        <h2 class="image-label">Raw data</h2>
+                        <img class="image" src="C:/Users/nived/Downloads/WhatsApp Image 2024-04-28 at 5.24.54 PM.jpeg" alt="Data Preparation Image">
+                    </div>
+                </p>
+                <p>
+                    <li>Data cleaning and mapping: Filter out data labeled as 'unknown', remap class labels to new IDs for a streamlined dataset, and separate images based on presence or absence of direction-related labels (e.g., right, left, straight).</li>
+                </ul>
+            </li>
+            <li class="workflow-step">
+                <strong>Data Preprocessing</strong>
+                <ul>
+                    <li>Split data: Separate the images into training, validation, and test sets to ensure the model is trained on diverse samples and validated on unseen data.</li>
+                    <li>Normalize images: Convert image pixel values from integers to floats and scale them between 0 and 1 for neural network processing.</li>
+                    <li>Augmentation:
+                        <ul>
+                            <li>Directional Images:
+                                <ul>
+                                    <li>Apply basic augmentation: Rotate images by ±20 degrees to simulate slight variations in orientation. This helps prevent overfitting while preserving the intended direction of the traffic sign. For example, a slight rotation ensures that left remains left, right remains right, and straight remains straight without significant distortion.</li>
+                                    <div class="image-container">
+                                        <h2 class="image-label">Images with direction</h2>
+                                        <img class="image" src="C:/Users/nived/Downloads/WhatsApp Image 2024-04-28 at 5.45.35 PM.jpeg" alt="Data Preparation Image">
+                                    </div>
+                                </p>
+                                <p>
+                                </ul>
+                            </li>
+                            <li>No Directional Images:
+                                <ul>
+                                    <li>Apply enhanced augmentation: Rotate images by ±40 degrees to introduce more variability in orientation. Since these images do not have explicit directional cues, a wider range of rotation helps the model generalize better to unseen data. The increased rotation angle ensures that features of the traffic signs are captured from various perspectives, enhancing the model's robustness.</li>
+                                    <div class="image-container">
+                                        <h2 class="image-label">Images without direction</h2>
+                                        <img class="image" src="C:/Users/nived/Downloads/WhatsApp Image 2024-04-28 at 5.27.55 PM.jpeg" alt="Data Preparation Image">
+                                    </div>
+                                </p>
+                                <p>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li class="workflow-step">
+                <strong>Model Building</strong>
+                <ul>
+                    <li>CNN architecture setup: Construct a VGG-16 inspired model with multiple convolutional layers, max pooling layers, and dense layers to learn hierarchical features from the traffic sign images.</li>
+                    <h3>Model Architecture:</h3>
+                    <p>
+                        The model architecture is inspired by VGG-16, renowned for its simplicity and effectiveness in image recognition tasks. It consists of several convolutional layers designed to extract increasingly complex features from input images, followed by pooling layers to reduce feature map dimensionality.
+                        <ul>
+                            <li>First Convolutional Block:
+                                <ul>
+                                    <li>Conv2D Layer: 64 filters, 3x3 kernel size, activation='relu', input shape=(100,100,3)</li>
+                                    <li>Conv2D Layer: 64 filters, 3x3 kernel size, activation='relu'</li>
+                                    <li>MaxPooling2D: Pool size of (2,2) and stride of 2</li>
+                                </ul>
+                            </li>
+                            <li>Second Convolutional Block:
+                                <ul>
+                                    <li>Conv2D Layer: 128 filters, 3x3 kernel size, activation='relu'</li>
+                                    <li>Conv2D Layer: 128 filters, 3x3 kernel size, activation='relu'</li>
+                                    <li>MaxPooling2D: Pool size of (2,2) and stride of 2</li>
+                                </ul>
+                            </li>
+                            <!-- Similarly, include details for the remaining convolutional blocks -->
+                            <li>Fourth Convolutional Block:
+                                <ul>
+                                    <li>Conv2D Layer: 512 filters, 3x3 kernel size, activation='relu'</li>
+                                    <li>Conv2D Layer: 512 filters, 3x3 kernel size, activation='relu'</li>
+                                    <li>Conv2D Layer: 512 filters, 3x3 kernel size, activation='relu'</li>
+                                    <li>MaxPooling2D: Pool size of (2,2) and stride of 2</li>
+                                </ul>
+                            </li>
+                            <li>Fifth Convolutional Block:
+                                <ul>
+                                    <li>Conv2D Layer: 512 filters, 3x3 kernel size, activation='relu'</li>
+                                    <li>Conv2D Layer: 512 filters, 3x3 kernel size, activation='relu'</li>
+                                </ul>
+                            </li>
+                            <!-- Fully Connected Layers -->
+                            <li>Fully Connected Layers:
+                                <ul>
+                                    <li>Dense Layer: 4096 units, activation='relu'</li>
+                                    <li>Dense Layer: 4096 units, activation='relu'</li>
+                                    <li>Dense Layer: 47 units (number of traffic sign classes), activation='softmax'</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </p>
+                    <h3>Training Specifications:</h3>
+                    <p>
+                        <ul>
+                            <li>Optimizer: Adam optimizer with a learning rate of 0.001.</li>
+                            <li>Loss Function: Categorical crossentropy.</li>
+                            <li>Metrics: Accuracy.</li>
+                        </ul>
+                    </p>
+                    <p>
+                        This architecture effectively captures the hierarchical pattern in the data, crucial for accurate classification of traffic signs.
+                    </p>
+                    <div class="image-container">
+                        <h2 class="image-label">VGG-16 Architecture</h2>
+                        <img class="image" src="C:/Users/nived/Downloads/conv-layers-vgg16-1024x450.jpg" alt="VGG-16 Architecture">
+                    </div>
+                </p>
+                <p>
+                </ul>
+            </li>
+            <li class="workflow-step">
+                <strong>Model Training</strong>
+                <ul>
+                    <li>Train Model: Train the constructed VGG-16 inspired model by fitting it to the training data. Utilize callbacks such as early stopping to prevent overfitting and optimize model performance. During training, validate the model on a separate validation dataset to monitor performance improvements and adjust hyperparameters as necessary to enhance generalization.</li>
+                    <li>Visualization: Visualize the training and validation process by plotting the loss and accuracy metrics over epochs. These visualizations provide insights into the model's learning dynamics, allowing for the assessment of convergence, overfitting, or underfitting. Monitoring the training and validation curves facilitates informed decisions regarding model optimization strategies, such as adjusting learning rates, incorporating regularization techniques, or modifying network architecture.</li>
+                </ul>
+            </li>
+            <li class="workflow-step">
+                <strong>Evaluation and Prediction</strong>
+                <ul>
+                    <li>Test model: Use the trained model to predict traffic sign classes on the test dataset. Evaluate model performance using classification metrics such as accuracy, precision, and recall.</li>
+                    <li>Single image prediction: Demonstrate the model's predictive capabilities by loading and preprocessing individual images, then using the model to predict their classes.</li>
+                </ul>
+            </li>
+            <li class="workflow-step">
+                <strong>Save and Reuse</strong>
+                <ul>
+                    <li>Save model and PCA components: Store the trained model and PCA components (if used) for future reuse without needing to retrain.</li>
+                    <li>Load model for predictions: Provide functionality to load the model and use it for ongoing or batch predictions as required.</li>
+                </ul>
+            </li>
+            <li class="workflow-step">
+                <strong>Deployment</strong>
+                <ul>
+                    <li>Integrate model into an application: Integrate the trained model into a web-based application or service that allows users to upload traffic sign images and receive classifications in real time.</li>
+                    <li>User interaction: Design a user-friendly interface where users can easily interact with the model, upload images, and view predictions.</li>
+                </ul>
+            </li>
+        </ol>
     </section>
 
     <section id="results">
@@ -53,7 +283,11 @@
 
     <div id="live-demo" class="live-demo">
         <h2>Live Demo</h2>
-        <a href="https://machinelearningapp-aqgr6vjfehx9nt39mz33mk.streamlit.app/" target="_blank">Click Here to View Live Demo</a>
+        <a href="https://machinelearningapp-aqgr6vjfehx9nt39mz33mk.streamlit.app/" target="_blank">View Live Demo</a> 
     </div>
+
+    <footer>
+        © 2024 Real-Time Traffic Sign Classification. All rights reserved.
+    </footer>
 </body>
 </html>
