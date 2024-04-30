@@ -101,6 +101,7 @@
         <a href="#results">Results</a>
         <a href="#live-demo">Live Demo</a>
     </nav>
+    
 
     <header>
         <h1>Real-Time Traffic Sign Classification</h1>
@@ -174,66 +175,10 @@
                     </li>
                 </ul>
             </li>
-                       <li class="workflow-step">
-                <strong>Model Building</strong>
+            <li>Model Building
                 <ul>
                     <li>CNN architecture setup: Construct a VGG-16 inspired model with multiple convolutional layers, max pooling layers, and dense layers to learn hierarchical features from the traffic sign images.</li>
-                    <h3>Model Architecture:</h3>
-                    <p>
-                        The model architecture is inspired by VGG-16, renowned for its simplicity and effectiveness in image recognition tasks. It consists of several convolutional layers designed to extract increasingly complex features from input images, followed by pooling layers to reduce feature map dimensionality.
-                        <ul>
-                            <li>First Convolutional Block:
-                                <ul>
-                                    <li>Conv2D Layer: 64 filters, 3x3 kernel size, activation='relu', input shape=(100,100,3)</li>
-                                    <li>Conv2D Layer: 64 filters, 3x3 kernel size, activation='relu'</li>
-                                    <li>MaxPooling2D: Pool size of (2,2) and stride of 2</li>
-                                </ul>
-                            </li>
-                            <li>Second Convolutional Block:
-                                <ul>
-                                    <li>Conv2D Layer: 128 filters, 3x3 kernel size, activation='relu'</li>
-                                    <li>Conv2D Layer: 128 filters, 3x3 kernel size, activation='relu'</li>
-                                    <li>MaxPooling2D: Pool size of (2,2) and stride of 2</li>
-                                </ul>
-                            </li>
-                            <!-- Similarly, include details for the remaining convolutional blocks -->
-                            <li>Fourth Convolutional Block:
-                                <ul>
-                                    <li>Conv2D Layer: 512 filters, 3x3 kernel size, activation='relu'</li>
-                                    <li>Conv2D Layer: 512 filters, 3x3 kernel size, activation='relu'</li>
-                                    <li>Conv2D Layer: 512 filters, 3x3 kernel size, activation='relu'</li>
-                                    <li>MaxPooling2D: Pool size of (2,2) and stride of 2</li>
-                                </ul>
-                            </li>
-                            <li>Fifth Convolutional Block:
-                                <ul>
-                                    <li>Conv2D Layer: 512 filters, 3x3 kernel size, activation='relu'</li>
-                                    <li>Conv2D Layer: 512 filters, 3x3 kernel size, activation='relu'</li>
-                                </ul>
-                            </li>
-                            <!-- Fully Connected Layers -->
-                            <li>Fully Connected Layers:
-                                <ul>
-                                    <li>Dense Layer: 4096 units, activation='relu'</li>
-                                    <li>Dense Layer: 4096 units, activation='relu'</li>
-                                    <li>Dense Layer: 47 units (number of traffic sign classes), activation='softmax'</li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </p>
-                    <h3>Training Specifications:</h3>
-                    <p>
-                        <ul>
-                            <li>Optimizer: Adam optimizer with a learning rate of 0.001.</li>
-                            <li>Loss Function: Categorical crossentropy.</li>
-                            <li>Metrics: Accuracy.</li>
-                        </ul>
-                    </p>
-                    <p>
-                        This architecture effectively captures the hierarchical pattern in the data, crucial for accurate classification of traffic signs.
-                    </p>
-              
-            <div class="image-container">
+                    <div class="image-container">
                         <img src="Convo.jpg" alt="VGG-16 Architecture" class="image">
                         <div class="image-label">VGG-16 Architecture</div>
                     </div>
@@ -263,7 +208,7 @@
         </ol>
     </section>
 
-    <section id="results">
+    <!-- <section id="results">
         <h2>Results</h2>
         <p>The model achieved impressive results in real-time traffic sign classification, demonstrating high accuracy and robustness across various scenarios. Key findings and performance metrics include:</p>
         <ul>
@@ -274,19 +219,50 @@
         </ul>
         <p>These results validate the effectiveness of the machine learning model in accurately identifying and classifying traffic signs in real-time, contributing to enhanced road safety and navigation.</p>
         <div class="image-container">
-            <img src="VGG_results.jpeg" alt="VGG results" class="image">
-            <div class="image-label">VGG Results</div>
+            <img src="Convo.jpg" alt="Confusion Matrix" class="image">
+            <div class="image-label">Confusion Matrix</div>
         </div>
-        <div class="image-container">
-            <img src="CustomModel_results.jpeg" alt="custom Model results" class="image">
-            <div class="image-label">custom Model results</div>
+    </section> -->
+
+    <section id="results">
+        <h2>Results</h2>
+        <p>The model achieved impressive results in real-time traffic sign classification, demonstrating high accuracy and robustness across various scenarios. Key findings and performance metrics include:</p>
+        <ul>
+            <li>Overall Accuracy: <span class="highlight">95%</span></li>
+            <li>Precision: <span class="highlight">96%</span></li>
+            <li>Recall: <span class="highlight">94%</span></li>
+            <li>F1-Score: <span class="highlight">95%</span></li>
+        </ul>
+        <p>These results validate the effectiveness of the machine learning model in accurately identifying and classifying traffic signs in real-time, contributing to enhanced road safety and navigation.</p>
+        <div style="display: flex; justify-content: space-between;">
+            <div class="image-container">
+                <img src="CNN_MODEL.jpeg" alt="Accuracy for CNN" class="image">
+                <div class="image-label">Accuracy for CNN</div>
+            </div>
+            <div class="image-container">
+                <img src="CNN_MODEL_PCA.jpeg" alt="Accuracy for CNN with PCA data" class="image">
+                <div class="image-label">Accuracy for CNN with PCA data</div>
+            </div>
+        </div>
+        <div style="display: flex; justify-content: space-between;">
+            <div class="image-container">
+                <img src="VGG_MODEL.jpeg" alt="Accuracy for VGG architecture" class="image">
+                <div class="image-label">Accuracy for VGG architecture</div>
+            </div>
+            <div class="image-container">
+                <img src="VGG_MODEL_PCA.jpeg" alt="Accuracy for VGG architecture with PCA data" class="image">
+                <div class="image-label">Accuracy for VGG architecture with PCA data</div>
+            </div>
         </div>
     </section>
+    
+    
+    
 
     <section id="live-demo" class="live-demo">
         <h2>Live Demo</h2>
         <p>Experience the real-time traffic sign classification in action. Click below to launch the live demo:</p>
-        <a href="https://machinelearningapp-aqgr6vjfehx9nt39mz33mk.streamlit.app/" target="_blank">Launch Live Demo</a>
+        <a href="#" target="_blank">Launch Live Demo</a>
     </section>
 
     <footer>
