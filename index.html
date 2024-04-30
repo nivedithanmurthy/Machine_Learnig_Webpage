@@ -101,6 +101,7 @@
         <a href="#results">Results</a>
         <a href="#live-demo">Live Demo</a>
     </nav>
+    
 
     <header>
         <h1>Real-Time Traffic Sign Classification</h1>
@@ -193,7 +194,7 @@
                 <ul>
                     <li>Evaluate performance: Assess the model's accuracy, precision, recall, and F1-score on the validation and test sets to gauge its effectiveness in traffic sign classification.</li>
                     <div class="image-container">
-                        <img src="Convo.jpg" alt="Model Evaluation Metrics" class="image">
+                        <img src="MODEL_EVALUATION.jpeg" alt="Model Evaluation Metrics" class="image">
                         <div class="image-label">Model Evaluation Metrics</div>
                     </div>
                 </ul>
@@ -207,7 +208,7 @@
         </ol>
     </section>
 
-    <section id="results">
+    <!-- <section id="results">
         <h2>Results</h2>
         <p>The model achieved impressive results in real-time traffic sign classification, demonstrating high accuracy and robustness across various scenarios. Key findings and performance metrics include:</p>
         <ul>
@@ -221,7 +222,42 @@
             <img src="Convo.jpg" alt="Confusion Matrix" class="image">
             <div class="image-label">Confusion Matrix</div>
         </div>
+    </section> -->
+
+    <section id="results">
+        <h2>Results</h2>
+        <p>The model achieved impressive results in real-time traffic sign classification, demonstrating high accuracy and robustness across various scenarios. Key findings and performance metrics include:</p>
+        <ul>
+            <li>Overall Accuracy: <span class="highlight">95%</span></li>
+            <li>Precision: <span class="highlight">96%</span></li>
+            <li>Recall: <span class="highlight">94%</span></li>
+            <li>F1-Score: <span class="highlight">95%</span></li>
+        </ul>
+        <p>These results validate the effectiveness of the machine learning model in accurately identifying and classifying traffic signs in real-time, contributing to enhanced road safety and navigation.</p>
+        <div style="display: flex; justify-content: space-between;">
+            <div class="image-container">
+                <img src="CNN_MODEL.jpeg" alt="Accuracy for CNN" class="image">
+                <div class="image-label">Accuracy for CNN</div>
+            </div>
+            <div class="image-container">
+                <img src="CNN_MODEL_PCA.jpeg" alt="Accuracy for CNN with PCA data" class="image">
+                <div class="image-label">Accuracy for CNN with PCA data</div>
+            </div>
+        </div>
+        <div style="display: flex; justify-content: space-between;">
+            <div class="image-container">
+                <img src="VGG_MODEL.jpeg" alt="Accuracy for VGG architecture" class="image">
+                <div class="image-label">Accuracy for VGG architecture</div>
+            </div>
+            <div class="image-container">
+                <img src="VGG_MODEL_PCA.jpeg" alt="Accuracy for VGG architecture with PCA data" class="image">
+                <div class="image-label">Accuracy for VGG architecture with PCA data</div>
+            </div>
+        </div>
     </section>
+    
+    
+    
 
     <section id="live-demo" class="live-demo">
         <h2>Live Demo</h2>
